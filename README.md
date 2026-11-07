@@ -2,14 +2,14 @@
 
 **八個步驟，寫出自己的 Python agent harness。**
 
-先做一個會呼叫工具、處理錯誤與接受評測的程式。可以從[八步動手營](tutorial/README.md)直接開始，或先操作[互動循環機器](https://f0909172434.github.io/miniharness/#machine)。不需要 API Key，也不需要先讀完整套課程。
+MiniHarness 是一套教你親手寫 agent harness 的教材：你會做出一個能呼叫工具、處理錯誤、接受評測的程式。可以直接從[八步動手營](tutorial/README.md)開始，也可以先操作網站上的[互動循環機器](https://f0909172434.github.io/miniharness/#machine)。整套內容不需要 API Key，也不必先讀完全部課程。
 
 ```bash
 python3 demos/demo_mock.py       # 先看一次完整的離線循環
 python3 tutorial/check.py        # 查看八步工作坊的驗收規格
 ```
 
-需要 Python 3.9+；harness 執行時只使用標準函式庫。網站、測試與選修的模型訓練範例有各自的開發依賴。
+需要 Python 3.9+。harness 執行時只用標準函式庫，`pytest` 只在開發時需要；網站、測試與選修的模型訓練範例各有自己的開發依賴。
 
 | 你現在想做什麼 | 入口 |
 |---|---|
@@ -17,55 +17,13 @@ python3 tutorial/check.py        # 查看八步工作坊的驗收規格
 | 看模型數值如何改變 | [TokenScope 實驗路線](docs/tokenscope-labs.md)：attention、取樣與 BPE，可保存重播 |
 | 補 Python／工程／ML 基礎 | [MiniAcademy 教材索引](academy/README.md)：依缺口選讀，不必全修才能使用 harness |
 
-**教材狀態：** 38 個模組均有繁體中文正文、練習與驗收指引；英文課程正文尚未提供。`ready` 指教材可讀，不代表學習者通過或已完成外部教學驗證。課程清單以 `academy/manifest.json` 為準。
+**教材狀態：** 38 個模組都已有繁體中文正文、練習與驗收指引，英文課程正文還沒有提供。模組標成 `ready` 只表示教材可以讀，不表示有學習者通過，也不表示教材經過外部教學驗證。課程清單以 `academy/manifest.json` 為準。
 
 [自測與驗收](academy/TOOLS.md) · [作業契約](academy/submissions/README.md) · [導師手冊](academy/MENTOR.md)
 
-## 學院：六階段地圖（academy/）
+## 30 秒上手
 
-以下為教材路線與練習估計時數，包含專案與反覆練習。
-
-| 階段 | 主題 | 規劃目標 | 預估小時 |
-| --- | --- | --- | --- |
-| 0 | 零基礎起步 | 終端機/檔案/第一支程式不慌張 | 9 |
-| 1 | Python 程式核心 | 獨立交付命令行工具 | 36 |
-| 2 | 工程與系統基礎 | 測試、打包、協作、呼叫 API | 40 |
-| 3 | 數學與機器學習 | 端到端 ML 流水線 | 60 |
-| 4 | 深度學習與 LLM | 親手訓練自己的小模型 | 80 |
-| 5 | Agent 工程與研究方法 | MiniHarness 全套 + 復現論文 + 公開作品 | 80 |
-
-```bash
-python3 tools/academy.py map      # 地圖 + 進度
-python3 tools/academy.py next     # 現在該學什麼（嚴格按階段推進）
-python3 tools/academy.py gaps     # 四面漏洞掃描：結構/內容/翻譯/學習
-python3 tools/academy.py i18n     # 多語言覆蓋報告
-```
-
-每條 Goal 都標注層級（know/do/build）與驗證方式；manifest 結構由測試守護，
-**「哪裡有洞」永遠是一條命令的事**（詳見 [academy/README.md](academy/README.md)
-與 [ROADMAP.md](ROADMAP.md)）。
-
-## 前端 · 手稿成機（site/）
-
-> 在線體驗：**https://f0909172434.github.io/miniharness/**
-
-一個 React + Vite 的單頁站點，把課程做成一件可玩的東西：
-
-- **首屏**：一頁幾乎空白的手稿，命題自己書寫——「智能在模型，工程在 harness。」；
-- **章貳 · 循環機器（核心裝置）**：教程算法的 JS 移植真實運行——單步/自動/重置、
-  「看模型 / 看工程」視角切換、故障注入拉桿（壞 JSON 進來，看循環自我修復）；
-- **章叁 · 目標星圖**：110 條 Goal 按 manifest 的前置依賴結成螺旋星圖，
-  懸停/釘選/雙擊標記達成（存本機）；
-- **章肆 · 工序單**：動手營八步逐項打勾，勾滿即 G5.3 的形。
-
-```bash
-cd site && npm install && npm run build && npm run preview   # 本地查看生產構建
-```
-
-無障礙與降級：鍵盤可駕駛機器（Space 單步 / R 重置 / F 故障），星圖支援方向鍵巡覽，
-`prefers-reduced-motion` 下全部繪製與運轉動畫靜止為終態。
-
-## 30 秒上手（不需要任何 API Key）
+下面的指令都不需要任何 API Key。
 
 ```bash
 git clone https://github.com/f0909172434/miniharness.git && cd miniharness
@@ -80,13 +38,9 @@ python3 demos/demo_from_zero.py   # 從 0 造腦：自訓語言模型 0%、手�
 python3 -m pytest                 # 核心、課程與失敗路徑檢查
 ```
 
-想被帶著一步一步做？直接進 [tutorial/](tutorial/README.md)：
-從空文件開始，8 個步驟（循環 → 協議 → 工具 → 安全閘 → 自愈 → 上下文 →
-評測 → 🎓畢業考）寫出你自己的 `my_harness.py`，每步都有檢查器驗收。
+如果想被一步一步帶著做，請進 [tutorial/](tutorial/README.md)。你會從空檔案開始，依序完成循環、協議、工具、安全閘、自我修復、上下文、評測，最後通過畢業考，寫出自己的 `my_harness.py`。每一步都有檢查器驗收。
 
-要求：Python 3.9+，**零第三方依賴**（stdlib 就夠；`pytest` 僅開發時需要）。
-
-真實 demo 的實際輸出（`NO_COLOR=1 python3 demos/demo_mock.py`）：
+下面是離線 demo 的實際輸出（`NO_COLOR=1 python3 demos/demo_mock.py`）：
 
 ```text
 工作區：/var/folders/.../miniharness-demo-fge77uvn
@@ -119,7 +73,7 @@ python3 -m pytest                 # 核心、課程與失敗路徑檢查
 - scripts/pipeline.py（1 處）：接入日誌
 ```
 
-（完整未刪節輸出見 `demos/`，誘餌文件 `notes.txt` 被正確排除。）
+完整未刪節的輸出見 `demos/`。可以看到誘餌檔案 `notes.txt` 被正確排除在報告之外。
 
 ## 四個 Demo
 
@@ -130,7 +84,7 @@ python3 -m pytest                 # 核心、課程與失敗路徑檢查
 | 真模型 REPL | `python3 demos/demo_cli.py` | 交互式命令行 agent，把它當工具用 |
 | 迷你評測 | `python3 demos/demo_eval.py [--real]` | 3 個任務的評測集，看通過率與步數 |
 
-接真實模型（任意 OpenAI 兼容端點均可——OpenAI / DeepSeek / 智譜 / Moonshot / Ollama）：
+要接真實模型，任何 OpenAI 相容端點都可以，例如 OpenAI、DeepSeek、智譜、Moonshot 或 Ollama：
 
 ```bash
 export OPENAI_API_KEY=sk-...
@@ -139,13 +93,7 @@ export OPENAI_API_KEY=sk-...
 python3 demos/demo_cli.py
 ```
 
-## 網站互動驗證
-
-循環機器的自動與單步操作共用播放控制。暫停會在目前一拍結束後停止；重置會取消舊的演出，故障開關則從新的一輪開始。系統設定減少動態時，首次進入畫面不會自動播放。
-
-2026-09 的瀏覽器回歸檢查涵蓋：開始後暫停、等待後步數不變、故障第一拍顯示解析錯誤、自動恢復完成報告，以及390px版面的教材連結與自行記錄。
-
-## 課程地圖（docs/）
+## 概念章節（docs/）
 
 | 章 | 主題 | 對應代碼 | 核心問題 |
 | --- | --- | --- | --- |
@@ -160,8 +108,50 @@ python3 demos/demo_cli.py
 | [08 路線圖](docs/08-roadmap.md) | 生產化 | —— | 從這裡到真實系統差什麼？ |
 | [09 從 0 造腦](docs/09-from-zero.md) | 自製大腦 | `brains.py` | 沒有模型，也能有 agent 嗎？ |
 
-建議路徑：先跑 demo → 讀 01/02 章 + 對照源碼 → 讀完其餘章節 →
-做 [07 章](docs/07-eval.md)的「畢業作業」（給評測集加一個自己的任務）。
+建議的閱讀順序是：先跑 demo，再讀 01、02 章並對照原始碼，接著讀完其餘章節，最後做 [07 章](docs/07-eval.md)的「畢業作業」，也就是替評測集加一個自己的任務。
+
+## MiniAcademy 課程（academy/）
+
+課程分成六個階段。下表列出每個階段的目標與練習估計時數，時數包含專案與反覆練習。
+
+| 階段 | 主題 | 規劃目標 | 預估小時 |
+| --- | --- | --- | --- |
+| 0 | 零基礎起步 | 終端機/檔案/第一支程式不慌張 | 9 |
+| 1 | Python 程式核心 | 獨立交付命令行工具 | 36 |
+| 2 | 工程與系統基礎 | 測試、打包、協作、呼叫 API | 40 |
+| 3 | 數學與機器學習 | 端到端 ML 流水線 | 60 |
+| 4 | 深度學習與 LLM | 親手訓練自己的小模型 | 80 |
+| 5 | Agent 工程與研究方法 | MiniHarness 全套 + 復現論文 + 公開作品 | 80 |
+
+```bash
+python3 tools/academy.py map      # 地圖 + 進度
+python3 tools/academy.py next     # 現在該學什麼（嚴格按階段推進）
+python3 tools/academy.py gaps     # 四面漏洞掃描：結構/內容/翻譯/學習
+python3 tools/academy.py i18n     # 多語言覆蓋報告
+```
+
+每一條 Goal 都標明層級（know、do 或 build）和驗證方式，manifest 的結構由測試把關。想知道課程哪裡還有缺口，只要執行一條命令就能列出來。細節見 [academy/README.md](academy/README.md) 與 [ROADMAP.md](ROADMAP.md)。
+
+## 互動網站（site/）
+
+> 在線體驗：**https://f0909172434.github.io/miniharness/**
+
+網站是一個 React + Vite 的單頁應用，把課程做成可以操作的東西：
+
+- **首屏**是一頁幾乎空白的手稿，上面會自己寫出這門課的命題：「智能在模型，工程在 harness。」
+- **章貳「循環機器」**是核心裝置。它實際執行教程演算法的 JavaScript 移植版，可以單步、自動播放或重置，也能在「看模型」與「看工程」兩種視角之間切換。故障注入拉桿會送進一段壞掉的 JSON，讓你看循環如何自我修復。
+- **章叁「目標星圖」**把 110 條 Goal 依 manifest 的前置依賴排成螺旋星圖。你可以懸停、釘選，或雙擊標記為達成，標記只存在本機。
+- **章肆「工序單」**列出動手營的八個步驟，可以逐項打勾；全部勾滿，就是 G5.3 要求的成果。
+
+```bash
+cd site && npm install && npm run build && npm run preview   # 本地查看生產構建
+```
+
+循環機器可以用鍵盤操作：Space 單步執行，R 重置，F 切換故障。星圖則可以用方向鍵巡覽。系統設定為 `prefers-reduced-motion` 時，所有繪製與運轉動畫會直接停在最終狀態。
+
+自動播放與單步操作共用同一套播放控制。按下暫停後，機器會在目前這一拍結束時停住；重置會取消正在進行的演出，故障開關則讓機器從新的一輪開始。系統設定減少動態時，第一次進入畫面不會自動播放。
+
+2026-09 做過一次瀏覽器回歸檢查，涵蓋以下情境：開始後暫停、等待後步數不變、故障的第一拍顯示解析錯誤、自動恢復並完成報告，以及390px版面下的教材連結與自行記錄。
 
 ## 目錄結構
 
@@ -194,11 +184,18 @@ miniharness/
 
 ## 設計原則
 
-1. **可讀 > 功能**：每個模塊一屏能看完核心邏輯；註釋講「為什麼」而不是「是什麼」；
-2. **零依賴**：真實 API 調用就是一個 HTTP POST，用 stdlib 親手寫一遍；
-3. **錯誤是第一公民**：一切錯誤以可讀文本喂回模型（self-repair），永不拋向天空；
-4. **可互換的大腦**：MockLLM ↔ 自訓小模型（09 章）↔ 真實 API 一行切換——離線教學與真實實驗共用同一套機制；
-5. **誠實的安全敘事**：[06 章](docs/06-sandbox.md)同時講防線與繞法，不假裝字符串過濾等於沙箱。
+1. **可讀比功能重要。** 每個模組的核心邏輯一個螢幕就看得完，註解說明「為什麼」，而不是「是什麼」。
+2. **不用第三方依賴。** 呼叫真實 API 其實就是一個 HTTP POST，這裡用標準函式庫親手寫一次。
+3. **錯誤是一等公民。** 所有錯誤都會轉成可讀的文字送回模型，讓它自我修復，而不是直接拋出例外。
+4. **大腦可以互換。** MockLLM、自己訓練的小模型（09 章）和真實 API 只差一行就能切換，離線教學與真實實驗共用同一套機制。
+5. **誠實面對安全問題。** [06 章](docs/06-sandbox.md)同時講防線和繞過的方法，不假裝字串過濾就等於沙箱。
+
+## 這個專案不做什麼
+
+- MiniHarness 不能直接用在生產環境，也不打算往那個方向發展。[08 章](docs/08-roadmap.md)列出了離生產等級還差哪些東西，以及補齊的順序。
+- 工具的安全閘是教學用的字串與路徑檢查，不是沙箱。[06 章](docs/06-sandbox.md)會示範它可以怎麼被繞過。
+- 英文課程目前只有標題，還沒有正文。
+- 教材標成 `ready` 不代表有人學完，也不代表經過外部教學驗證。
 
 ## 相關項目對照
 
@@ -210,25 +207,17 @@ miniharness/
 | [smolagents](https://github.com/huggingface/smolagents) | 代碼即行動流派 | [02 章](docs/02-protocol.md)的流派對比 |
 | [OpenHands](https://github.com/All-Hands-AI/OpenHands) | 完整平臺 | [08 章](docs/08-roadmap.md)的生產化參照 |
 
-## FAQ
+## 常見問題
 
-**Q：這和 LangChain / Agents SDK 有什麼區別？**
-框架幫你「跳過」這層抽象；MiniHarness 幫你「看懂」它——甚至連模型都繞開了
-（[09 章](docs/09-from-zero.md)），純手搓。讀完之後你用任何框架，
-都知道 prompt 球放在哪、錢花在哪、會在哪裡碎。
+**這和 LangChain 或 Agents SDK 有什麼不同？**
+框架讓你跳過這一層抽象，MiniHarness 則讓你看懂它，甚至連模型都可以不用（[09 章](docs/09-from-zero.md)），全部自己動手寫。讀完之後，不管你用哪個框架，都會知道 prompt 放在哪裡、錢花在哪裡、哪裡容易出問題。
 
-**Q：能直接用在生產嗎？**
-不能，也不打算。[08 章](docs/08-roadmap.md)列出了到生產級的差距清單與補齊順序。
-
-**Q：必須有 API Key 嗎？**
-不需要。所有 demo 默認離線；[09 章](docs/09-from-zero.md)更進一步——
-連模型都自己造（手寫規則、自訓語言模型、模仿學習策略）。
-接真模型只是換一行構造函數。
+**一定要有 API Key 嗎？**
+不需要。所有 demo 預設都是離線的。[09 章](docs/09-from-zero.md)更進一步，連模型都自己做：手寫規則、自己訓練的語言模型，以及模仿學習的策略。要接真實模型，只需要換一行建構函式。
 
 ## 參與
 
-歡迎 PR：新增評測任務（最歡迎）、新增一章、修錯字。
-問題請開 issue，附上 `NO_COLOR=1` 的完整輸出。
+歡迎送 PR。最需要的是新的評測任務，也歡迎新增章節或修正錯字。回報問題時請開 issue，並附上用 `NO_COLOR=1` 執行的完整輸出。
 
 ## License
 
@@ -236,9 +225,4 @@ miniharness/
 
 ## 靈感與致謝
 
-本項目受 [minimind](https://github.com/jingyaogong/minimind)（造大腦）啟發，
-教的是它的對偶問題：**造馬具**。章節組織參考了微軟
-[AI for Beginners](https://github.com/microsoft/AI-For-Beginners) 的課程化風格；
-設計思想上向 [mini-swe-agent](https://github.com/SWE-agent/mini-swe-agent)
-（"the 100-line agent"）與 Anthropic
-[Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) 致敬。
+這個專案受到 [minimind](https://github.com/jingyaogong/minimind) 啟發。minimind 教你造大腦，MiniHarness 處理的是它的對偶問題：造馬具。章節組織參考了微軟 [AI for Beginners](https://github.com/microsoft/AI-For-Beginners) 的課程化寫法。設計想法則受到 [mini-swe-agent](https://github.com/SWE-agent/mini-swe-agent)（"the 100-line agent"）與 Anthropic [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) 的影響。
