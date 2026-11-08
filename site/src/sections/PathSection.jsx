@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useScrollProgress } from "../hooks.js";
 import manifest from "../../../academy/manifest.json";
-const SOURCE = "https://github.com/f0909172434/miniharness/blob/main/";
+const SOURCE = "https://github.com/Chih-Kai-Wang/miniharness/blob/main/";
 const STAGES = manifest.stages.map(stage => ({
   ...stage,
   hours: stage.modules.reduce((n, module) => n + module.hours, 0),

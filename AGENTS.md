@@ -58,7 +58,7 @@ python3 demos/demo_eval.py --quiet     # 評測 3/3
 
 ## 站點部署（site/ → GitHub Pages）
 
-線上地址：https://f0909172434.github.io/miniharness/。
+線上地址：https://chih-kai-wang.github.io/miniharness/。
 
 推送 main 後，由 GitHub Actions 先執行 Python 測試、課程結構驗證、離線示範與網站建置，全部通過才部署 GitHub Pages。PR 只驗證，不部署。不要手動覆寫 gh-pages 分支。
 

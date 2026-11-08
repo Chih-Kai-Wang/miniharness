@@ -45,7 +45,7 @@ export default function CampSection() {
                 <span className="camp-line">{line}</span>
 
               </label>
-              <a className="camp-ref" href={`https://github.com/f0909172434/miniharness/blob/main/tutorial/steps/${ref}`}>工序教材 ↗</a>
+              <a className="camp-ref" href={`https://github.com/Chih-Kai-Wang/miniharness/blob/main/tutorial/steps/${ref}`}>工序教材 ↗</a>
             </li>
           );
         })}
@@ -59,7 +59,7 @@ export default function CampSection() {
       </p>
 
       <div className="terminal-block" role="figure" aria-label="常用命令">
-        <div><span className="c">$</span> git clone https://github.com/f0909172434/miniharness.git <span className="c">&&</span> cd miniharness</div>
+        <div><span className="c">$</span> git clone https://github.com/Chih-Kai-Wang/miniharness.git <span className="c">&&</span> cd miniharness</div>
         <div><span className="c">$</span> python3 tutorial/check.py <span className="c"># 動手營：進度總覽 / 逐步驗收</span></div>
         <div><span className="c">$</span> python3 demos/demo_from_zero.py <span className="c"># 沒有模型，也有 agent</span></div>
         <div><span className="c">$</span> python3 tools/academy.py map <span className="c"># 你的學習地圖與進度</span></div>

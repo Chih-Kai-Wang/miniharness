@@ -278,7 +278,7 @@ export default function ConstellationSection() {
                   {selectedModule?.title[manifest.default_locale]}
                 </p>
                 <p className="module-status">{selectedModule?.status === "ready" ? "已有教材 · 繁體中文" : "規劃中 · 正文尚未完成"}</p>
-                {selectedModule?.status === "ready" && selectedModule.content[manifest.default_locale].map(path => <a className="lesson-link" key={path} href={`https://github.com/f0909172434/miniharness/blob/main/${path}`}>閱讀模組教材 ↗</a>)}
+                {selectedModule?.status === "ready" && selectedModule.content[manifest.default_locale].map(path => <a className="lesson-link" key={path} href={`https://github.com/Chih-Kai-Wang/miniharness/blob/main/${path}`}>閱讀模組教材 ↗</a>)}
                 <p>{selected.statement}</p>
                 {selected.verify && (
                   <p className="verify">$ {selected.verify}</p>

@@ -19,7 +19,7 @@ export default function Hero() {
         觀察模型數值；不必先修完整套課程。
       </p>
 
-      <div className="start-links"><a href="#machine">操作循環機器 ↓</a><a href="https://github.com/f0909172434/miniharness/tree/main/tutorial">八步動手營 ↗</a><a href="https://f0909172434.github.io/tokenscope/?lang=zh-Hant">TokenScope 實驗 ↗</a><a href="#path">選讀先備教材 ↓</a></div>
+      <div className="start-links"><a href="#machine">操作循環機器 ↓</a><a href="https://github.com/Chih-Kai-Wang/miniharness/tree/main/tutorial">八步動手營 ↗</a><a href="https://chih-kai-wang.github.io/tokenscope/?lang=zh-Hant">TokenScope 實驗 ↗</a><a href="#path">選讀先備教材 ↓</a></div>
 
       <svg
         className={`hero-loop${reduced ? "" : " draw-on-load"}`}

@@ -2,7 +2,7 @@
 
 **八個步驟，寫出自己的 Python agent harness。**
 
-MiniHarness 是一套教你親手寫 agent harness 的教材：你會做出一個能呼叫工具、處理錯誤、接受評測的程式。可以直接從[八步動手營](tutorial/README.md)開始，也可以先操作網站上的[互動循環機器](https://f0909172434.github.io/miniharness/#machine)。整套內容不需要 API Key，也不必先讀完全部課程。
+MiniHarness 是一套教你親手寫 agent harness 的教材：你會做出一個能呼叫工具、處理錯誤、接受評測的程式。可以直接從[八步動手營](tutorial/README.md)開始，也可以先操作網站上的[互動循環機器](https://chih-kai-wang.github.io/miniharness/#machine)。整套內容不需要 API Key，也不必先讀完全部課程。
 
 ```bash
 python3 demos/demo_mock.py       # 先看一次完整的離線循環
@@ -26,7 +26,7 @@ python3 tutorial/check.py        # 查看八步工作坊的驗收規格
 下面的指令都不需要任何 API Key。
 
 ```bash
-git clone https://github.com/f0909172434/miniharness.git && cd miniharness
+git clone https://github.com/Chih-Kai-Wang/miniharness.git && cd miniharness
 
 # 路線 A（推薦入口）：動手營——8 步親手寫出自己的 harness
 cat tutorial/README.md
@@ -134,7 +134,7 @@ python3 tools/academy.py i18n     # 多語言覆蓋報告
 
 ## 互動網站（site/）
 
-> 在線體驗：**https://f0909172434.github.io/miniharness/**
+> 在線體驗：**https://chih-kai-wang.github.io/miniharness/**
 
 網站是一個 React + Vite 的單頁應用，把課程做成可以操作的東西：
 
